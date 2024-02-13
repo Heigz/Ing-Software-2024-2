@@ -87,9 +87,11 @@ class ArbolBinario:
 
 if __name__ == "__main__":
     t = tour()
-    print(t.cuenta_valles("UUDDDDDUDUDUDUU"))
+    print("--CUENTA VALLES--")
+    cadena = input("Ingrese cadena de la forma especificada en la practica: ")
+    print("Numero de valles: " + str(t.cuenta_valles(cadena)))
 
-
+    print("--ARBOL--")
     # Ejemplo de uso
     arbol = ArbolBinario()
     arbol.agregar(10)
