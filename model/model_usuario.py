@@ -2,30 +2,34 @@ from alchemyClasses.Usuario import Usuario
 from alchemyClasses import db
 
 
-#/////////////////////////////////////////1)Ver los registros de una tabla
+# /////////////////////////////////////////1)Ver los registros de una tabla
 def muestra_todos_usuarios():
+    s = ""
     for usuario in Usuario.query.all():
-        print(usuario)
-        print("--------------------------------")
+        s += str(usuario) + "<br>"
+    return s
 
 
-#///////////////////////////////////////////2)Filtrar los registros por id
+# ///////////////////////////////////////////2)Filtrar los registros por id
 def filtrar_por_id_usuario(id):
-    for usuario in Usuario.query.filter(Usuario.idUsuario== id):
-        print(usuario)
+    usuario_seleccionado = ""
+    for usuario in Usuario.query.filter(Usuario.idUsuario == id):
+        # print(usuario)
+        usuario_seleccionado = str(usuario)
+    return usuario_seleccionado
 
 
+# ////////////////////////////////////////////3) Actualizar la columna nombre de un registro
 
-#////////////////////////////////////////////3) Actualizar la columna nombre de un registro
 
-def actualizar_nombre_usuario(id,nombre):
-    usuario = Usuario.query.filter(Usuario.idUsuario==id).first()
-    usuario.nombre= nombre
+def actualizar_nombre_usuario(id, nombre):
+    usuario = Usuario.query.filter(Usuario.idUsuario == id).first()
+    usuario.nombre = nombre
     db.session.commit()
     print("Actualizacion realizada con exito")
 
 
-#//////////////////////////////////////////4) Borrar registro por id o todos los registros
+# //////////////////////////////////////////4) Borrar registro por id o todos los registros
 def borra_usuario(id):
     usuario = Usuario.query.filter(Usuario.idUsuario == id).first()
     if usuario:
@@ -42,8 +46,3 @@ def borra_todos_usuarios():
         db.session.delete(usuario)
     db.session.commit()
     print("Todos los registros de usuarios han sido eliminados.")
-
-
-
-
-

@@ -1,0 +1,244 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-size: cover;
+    background-position: center;
+    background-color: black;
+}
+
+video {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+li {
+    list-style: none;
+
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+
+}
+
+a:hover {
+    color: plum;
+}
+
+
+header {
+    position: relative;
+    padding: 0 2rem;
+    display: flex;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    font-size: 50px;
+    margin-top: 20px;
+    /* Adjusted margin */
+    position: absolute;
+    /* Added absolute positioning */
+    top: 140px;
+    /* Positioned at the top of the video */
+    left: 50%;
+    /* Center horizontally */
+    transform: translateX(-50%);
+    /* Center horizontally */
+    font-size: 70px;
+
+}
+
+.navbar {
+
+    position: fixed;
+    width: 100%;
+    height: 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+}
+
+.navbar .logo a {
+    font-size: 1.5rem;
+    font-weight: bold;
+
+}
+
+.navbar .links {
+    display: flex;
+    gap: 4rem;
+}
+
+.navbar .toggle_btn {
+    margin-top: 10px;
+    position: fixed;
+    right: 2rem;
+    top: 60px;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    top: 0;
+}
+
+.titulo {
+    color: white;
+    text-align: center;
+    font-size: 50px;
+    margin-top: 20px;
+    /* Adjusted margin */
+    position: absolute;
+    /* Added absolute positioning */
+    top: 0;
+    /* Positioned at the top of the video */
+    left: 50%;
+    /* Center horizontally */
+    transform: translateX(-50%);
+    /* Center horizontally */
+    font-size: 70px;
+}
+
+h2 {
+    color: white;
+    text-align: center;
+    font-size: 29px;
+}
+
+
+
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    z-index: 1;
+    min-height: 100vh;
+    /* Set a minimum height to prevent overlapping */
+
+}
+
+
+
+.card {
+    background-color: black;
+    width: 270px;
+    height: 400px;
+    margin: 150px 40px;
+    opacity: .65;
+    border-radius: 10px;
+}
+
+.card-image {
+    height: 260px;
+    margin-bottom: 15px;
+    background-size: cover;
+    z-index: 1;
+}
+
+
+.card-1 {
+    background-image: url('../static/images/rinzler.jpeg');
+
+}
+
+.card-2 {
+    background-image: url('../static/images/peliculas.jpeg');
+
+}
+
+.card-3 {
+    background-image: url('../static/images/compu_renta.jpeg');
+
+}
+
+.card a {
+    background-color: white;
+    color: black;
+    padding: 15px 20px;
+    display: inline-block;
+    text-align: center;
+    margin: 40px 50px 20px;
+    border-radius: 5px;
+    letter-spacing: 2px;
+    transition: 0.15s;
+    text-decoration: none;
+}
+
+.card a:hover {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    transform: scale(1.02);
+    transition: all .2s ease;
+
+}
+
+
+.card:hover {
+    background-color: black;
+    opacity: 1;
+    color: white;
+    transition: .5s ease;
+
+}
+
+.dropdown_menu {
+    position: fixed;
+    right: 2rem;
+    top: 60px;
+    height: 0;
+    width: 300px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 1000;
+    transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.dropdown_menu.open {
+    height: 140px;
+}
+
+.dropdown_menu li {
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+@media(max-width: 1100px) {
+    .navbar .links {
+        display: none;
+    }
+
+    .navbar .toggle_btn {
+        display: block;
+    }
+
+    .dropdown_menu {
+        display: block;
+    }
+}
+
+@media(max-width: 576px) {
+    .dropdown_menu {
+        left: 2rem;
+        width: unset;
+    }
+}
