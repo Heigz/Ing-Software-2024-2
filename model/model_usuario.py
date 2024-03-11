@@ -2,6 +2,22 @@ from alchemyClasses.Usuario import Usuario
 from alchemyClasses import db
 
 
+# ///////////////////////////////////////////0) Crear un nuevo registro
+def crear_usuario(nombre, apPat, apMat, password, email, superUser=False):
+    nuevo_usuario = Usuario(
+        nombre=nombre,
+        apPat=apPat,
+        apMat=apMat,
+        password=password,
+        email=email,
+        superUser=superUser,
+    )
+    db.session.add(nuevo_usuario)
+    db.session.commit()
+    print("Usuario creado con éxito.")
+    return nuevo_usuario
+
+
 # /////////////////////////////////////////1)Ver los registros de una tabla
 def muestra_todos_usuarios():
     s = ""

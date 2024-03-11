@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="../static/style_create_user.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+
+</head>
+
+<body>
+
+
+    <video muted autoplay loop>
+        <source src="../static/Late_night.mp4" type="video/mp4">
+    </video>
+
+    <header>
+        <div class="navbar">
+            <div class="logo">
+                <a href="/">Clonbuster</a>
+            </div>
+            <ul class="links">
+                <li><a href="/usuario">Usuarios</a></li>
+                <li><a href="/controlador_pelicula/peliculas">Peliculas</a></li>
+                <li><a href="/controlador_renta/rentas">Rentas</a></li>
+            </ul>
+            <div class="toggle_btn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+        <div class="dropdown_menu">
+            <li><a href="/usuario">Usuarios</a></li>
+            <li><a href="/controlador_pelicula/peliculas">Peliculas</a></li>
+            <li><a href="/controlador_renta/rentas">Rentas</a></li>
+        </div>
+    </header>
+
+    <script>
+        const toggleBtn = document.querySelector('.toggle_btn');
+        const toggleBtnIcon = document.querySelector('.toggle_btn i');
+        const dropdownMenu = document.querySelector('.dropdown_menu');
+
+        toggleBtn.onclick = function () {
+            dropdownMenu.classList.toggle('open')
+            const isOpen = dropdownMenu.classList.contains('open')
+            toggleBtnIcon.classList = isOpen ? 'fa-solid fa-xmark' : 'fa-solid fa-bars'
+        }
+    </script>
+
+
+    <section class="container">
+
+        <!-- <h1>Crear Usuario</h1> -->
+        <form action="" method="post">
+            <h2>Crear usuario</h2>
+            <div class="content">
+                <div class="input-box">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" placeholder="Ingrese su nombre" name="nombre" required>
+                </div>
+
+                <div class="input-box">
+                    <label for="nombre">Apellido Paterno</label>
+                    <input type="text" placeholder="Ingrese su apellido paterno" name="apellido_pat" required>
+                </div>
+
+                <div class="input-box">
+                    <label for="nombre">Apellido Materno</label>
+                    <input type="text" placeholder="Ingrese su apellido materno" name="apellido_mat" required>
+                </div>
+
+                <div class="input-box">
+                    <label for="nombre">Contraseña</label>
+                    <input type="text" placeholder="Ingrese su contraseña" name="passwd" required>
+                </div>
+
+                <div class="input-box">
+                    <label for="nombre">Correo electronico</label>
+                    <input type="text" placeholder="Ingrese su correo" name="correo" required>
+                </div>
+
+                <span class="super-user">Super user</span>
+                <div class="user-type">
+                    <input type="radio" id="yes" name="super_user" value="1">
+                    <label for="yes">Si</label>
+                    <input type="radio" id="no" name="super_user" value="0">
+                    <label for="no">No</label>
+                </div>
+
+                <div class="button-container">
+                    <button type="submit">Crear</button>
+                </div>
+            </div>
+
+        </form>
+
+        </div>
+    </section>
+    </div>
+</body>
+
+</html>

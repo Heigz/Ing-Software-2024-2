@@ -21,10 +21,5 @@ def home():
     return render_template("home.html")
 
 
-# @app.route("/usuario")
-# def usuarios():
-#     return muestra_todos_usuarios()
-
-
 if __name__ == "__main__":
     app.run()
