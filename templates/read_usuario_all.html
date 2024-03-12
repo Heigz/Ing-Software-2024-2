@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="../static/style_crud_user.css">
+    <link rel="stylesheet" href="/static/style_read_u_all.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -15,7 +15,7 @@
 
 
     <video muted autoplay loop>
-        <source src="../static/Late_night.mp4" type="video/mp4">
+        <source src="/static/Late_night.mp4" type="video/mp4">
     </video>
 
     <header>
@@ -52,35 +52,38 @@
     </script>
 
     <section class="container">
-        <h1>USUARIO</h1>
+
+        <h1>User Data</h1>
+        <table class="table">
+            <thead>
+                <tr class="table_header">
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>ApellidoPat</th>
+                    <th>ApellidoMat</th>
+                    <th>Password</th>
+                    <th>Email</th>
+                    <th>SuperUser</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in usuarios %}
+                <tr class="table_row">
+                    <td class="table_cell">{{ user.idUsuario }}</td>
+                    <td class="table_cell">{{ user.nombre }}</td>
+                    <td class="table_cell">{{ user.apPat }}</td>
+                    <td class="table_cell">{{ user.apMat }}</td>
+                    <td class="table_cell">{{ user.password }}</td>
+                    <td class="table_cell">{{ user.email }}</td>
+                    <td class="table_cell">{{ user.superUser }}</td>
+
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
 
 
-        <div class="card">
-            <h2>Create</h2>
-            <div class="card-image card-1"></div>
-            <a href="/usuario/create">ADMINISTRAR</a>
-        </div>
-
-        <div class="card">
-            <h2>Read</h2>
-            <div class="card-image card-2" href="/controlador_pelicula/usuarios"></div>
-            <a href="/usuario/read">ADMINISTRAR</a>
-
-        </div>
-
-        <div class="card">
-            <h2>Update</h2>
-            <div class="card-image card-3"></div>
-            <a href="/usuario/update/id">ADMINISTRAR</a>
-
-        </div>
-
-        <div class="card">
-            <h2>Delete</h2>
-            <div class="card-image card-4"></div>
-            <a href="/usuario/delete/id">ADMINISTRAR</a>
-
-        </div>
     </section>
 </body>
 
