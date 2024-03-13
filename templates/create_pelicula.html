@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="/static/style_read_u_id.css">
+    <link rel="stylesheet" href="../static/style_create_user.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -15,7 +15,7 @@
 
 
     <video muted autoplay loop>
-        <source src="/static/Late_night.mp4" type="video/mp4">
+        <source src="../static/Late_night.mp4" type="video/mp4">
     </video>
 
     <header>
@@ -56,15 +56,33 @@
 
         <!-- <h1>Crear Usuario</h1> -->
         <form action="" method="post">
-            <h2>Eliminar usuario</h2>
+            <h2>Crear pelicula</h2>
             <div class="content">
                 <div class="input-box">
-                    <label for="idUsuario">ID</label>
-                    <input type="text" placeholder="Ingrese ID a borrar" name="idUsuario" id="idUsuario" required>
+                    <label for="nombre">Nombre</label>
+                    <input type="text" placeholder="Ingrese el  nombre" name="nombre" id="nombre" required>
+                </div>
+
+                <div class="input-box">
+                    <label for="genero">Genero</label>
+                    <input type="text" placeholder="Ingrese el genero de la pelicula" name="genero" id="genero"
+                        required>
+                </div>
+
+                <div class="input-box">
+                    <label for="duracion">Duracion</label>
+                    <input type="text" placeholder="Ingrese la duracion(minutos)" name="duracion" id="duracion"
+                        required>
+                </div>
+
+                <div class="input-box">
+                    <label for="inventario">Inventario</label>
+                    <input type="text" placeholder="Ingrese el numero de inventario" name="inventario" id="inventario"
+                        required>
                 </div>
 
                 <div class="button-container">
-                    <button type="submit">Eliminar</button>
+                    <button type="submit">Crear</button>
                 </div>
             </div>
 

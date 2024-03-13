@@ -138,6 +138,11 @@ h2 {
     width: auto;
 }
 
+.renta_vencida {
+    background-color: rgba(255, 0, 0, 0.2);
+    /* Color de fondo rojo translúcido para resaltar */
+}
+
 .table_row:nth-child(even) {
     background-color: wheat;
 }
@@ -147,14 +152,16 @@ h2 {
 }
 
 .table_header {
-    text-align: left;
+    text-align: center;
     background-color: black;
     color: wheat;
-    padding: 20px;
+    padding: 50px;
+
 }
 
 .table_cell {
     padding: 20px;
+
 }
 
 .dropdown_menu {

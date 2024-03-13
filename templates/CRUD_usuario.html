@@ -25,8 +25,8 @@
             </div>
             <ul class="links">
                 <li><a href="/usuario">Usuarios</a></li>
-                <li><a href="/controlador_pelicula/peliculas">Peliculas</a></li>
-                <li><a href="/controlador_renta/rentas">Rentas</a></li>
+                <li><a href="/pelicula">Peliculas</a></li>
+                <li><a href="/renta">Rentas</a></li>
             </ul>
             <div class="toggle_btn">
                 <i class="fa-solid fa-bars"></i>
@@ -34,8 +34,8 @@
         </div>
         <div class="dropdown_menu">
             <li><a href="/usuario">Usuarios</a></li>
-            <li><a href="/controlador_pelicula/peliculas">Peliculas</a></li>
-            <li><a href="/controlador_renta/rentas">Rentas</a></li>
+            <li><a href="/pelicula">Peliculas</a></li>
+            <li><a href="/renta">Rentas</a></li>
         </div>
     </header>
 
@@ -52,33 +52,33 @@
     </script>
 
     <section class="container">
-        <h1>USUARIO</h1>
+        <h1>{{titulo}}</h1>
 
 
         <div class="card">
             <h2>Create</h2>
             <div class="card-image card-1"></div>
-            <a href="/usuario/create">ADMINISTRAR</a>
+            <a href="/{{titulo}}/create">ADMINISTRAR</a>
         </div>
 
         <div class="card">
             <h2>Read</h2>
-            <div class="card-image card-2" href="/controlador_pelicula/usuarios"></div>
-            <a href="/usuario/read">ADMINISTRAR</a>
+            <div class="card-image card-2"></div>
+            <a href="/{{titulo}}/read">ADMINISTRAR</a>
 
         </div>
 
         <div class="card">
             <h2>Update</h2>
             <div class="card-image card-3"></div>
-            <a href="/usuario/update/id">ADMINISTRAR</a>
+            <a href="/{{titulo}}/update/id">ADMINISTRAR</a>
 
         </div>
 
         <div class="card">
             <h2>Delete</h2>
             <div class="card-image card-4"></div>
-            <a href="/usuario/delete/id">ADMINISTRAR</a>
+            <a href="/{{titulo}}/delete/id">ADMINISTRAR</a>
 
         </div>
     </section>

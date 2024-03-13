@@ -6,13 +6,6 @@ from alchemyClasses import db
 
 
 def crear_usuario(nombre, apPat, apMat, password, email, superUser):
-    print("Received values:")
-    print("Nombre:", nombre)
-    print("ApPat:", apPat)
-    print("ApMat:", apMat)
-    print("Password:", password)
-    print("Email:", email)
-    print("SuperUser:", superUser)
 
     nuevo_usuario = Usuario(
         nombre=nombre,

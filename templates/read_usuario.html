@@ -25,8 +25,8 @@
             </div>
             <ul class="links">
                 <li><a href="/usuario">Usuarios</a></li>
-                <li><a href="/controlador_pelicula/peliculas">Peliculas</a></li>
-                <li><a href="/controlador_renta/rentas">Rentas</a></li>
+                <li><a href="/pelicula">Peliculas</a></li>
+                <li><a href="/renta">Rentas</a></li>
             </ul>
             <div class="toggle_btn">
                 <i class="fa-solid fa-bars"></i>
@@ -34,8 +34,8 @@
         </div>
         <div class="dropdown_menu">
             <li><a href="/usuario">Usuarios</a></li>
-            <li><a href="/controlador_pelicula/peliculas">Peliculas</a></li>
-            <li><a href="/controlador_renta/rentas">Rentas</a></li>
+            <li><a href="/pelicula">Peliculas</a></li>
+            <li><a href="/renta">Rentas</a></li>
         </div>
     </header>
 
@@ -52,19 +52,19 @@
     </script>
 
     <section class="container">
-        <h1>USUARIO</h1>
+        <h1>{{titulo}}</h1>
 
 
         <div class="card">
-            <h2>Read all users</h2>
+            <h2>Read all {{titulo}}</h2>
             <div class="card-image card-1"></div>
-            <a href="/usuario/read/all">ADMINISTRAR</a>
+            <a href="/{{titulo}}/read/all">ADMINISTRAR</a>
         </div>
 
         <div class="card">
-            <h2>Read user by id</h2>
-            <div class="card-image card-2" href="/usuario/read/id"></div>
-            <a href="/usuario/read/id">ADMINISTRAR</a>
+            <h2>Read {{titulo}} by id</h2>
+            <div class="card-image card-2"></div>
+            <a href="/{{titulo}}/read/id">ADMINISTRAR</a>
 
         </div>
 

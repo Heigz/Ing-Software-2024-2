@@ -9,7 +9,7 @@ usuario_blueprint = Blueprint("usuario", __name__, url_prefix="/usuario")
 
 @usuario_blueprint.route("/")  # localhost:5000/usuario
 def administra_usuarios():
-    return render_template("CRUD_usuario.html")
+    return render_template("CRUD_usuario.html", titulo="usuario")
 
 
 # /////////////////////////////////////////////////////////////////////////////////////////////////////// CREATE
@@ -47,7 +47,7 @@ def create_usuario():
 # /////////////////////////////////////////////////////////////////////////////////////////////////////// READ
 @usuario_blueprint.route("/read")
 def seccion_read():
-    return render_template("read_usuario.html")
+    return render_template("read_usuario.html", titulo="usuario")
 
 
 @usuario_blueprint.route("/read/all")
