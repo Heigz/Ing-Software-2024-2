@@ -30,14 +30,12 @@ def create_usuario():
         password = request.form["password"]
         email = request.form["email"]
         superUser = request.form["superUser"]
-        if (
-            crear_usuario(nombre, apPat, apMat, password, email, superUser)
-            == "Usuario creado con éxito."
-        ):
+        mensaje = crear_usuario(nombre, apPat, apMat, password, email, superUser)
+        if mensaje == "Usuario creado con éxito.":
             flash("Usuario creado con éxito.")
-            return redirect(url_for("usuario.create_usuario"))
+            return render_template("create_usuario_sin_boton.html")
         else:
-            flash("Error al crear el usuario.")
+            flash(mensaje)
             return redirect(url_for("usuario.seccion_create"))
 
 
@@ -133,22 +131,14 @@ def update_usuario_id_change():
         password = request.form["password"]
         email = request.form["email"]
         superUser = request.form["superUser"]
-        if (
-            actualizar_usuario(
-                idUsuario,
-                nombre,
-                apPat,
-                apMat,
-                password,
-                email,
-                superUser,
-            )
-            == "Actualizacion realizada con exito"
-        ):
+        mensaje = actualizar_usuario(
+            idUsuario, nombre, apPat, apMat, password, email, superUser
+        )
+        if mensaje == "Actualizacion realizada con exito":
             flash("Usuario actualizado con exito.")
-            return redirect(url_for("usuario.update_usuario_id"))
+            return render_template("update_u_id_sin_boton.html", name="Update")
         else:
-            flash("Error al actualizar el usuario.")
+            flash(mensaje)
             return redirect(url_for("usuario.update_usuario_id"))
 
 

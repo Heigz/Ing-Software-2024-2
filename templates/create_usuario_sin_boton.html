@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="../static/style_home.css">
+    <link rel="stylesheet" href="../static/style_create_user.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -51,27 +51,51 @@
         }
     </script>
 
+
     <section class="container">
 
-        <div class="card">
-            <h2>Usuarios</h2>
-            <div class="card-image card-1"></div>
-            <a href="/usuario">ADMINISTRAR</a>
-        </div>
+        <!-- <h1>Crear Usuario</h1> -->
+        <form action="" method="post">
+            <h2>Crear usuario</h2>
+            <div class="content">
+                <div class="input-box">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" placeholder="Ingrese su nombre" name="nombre" id="nombre" required>
+                </div>
 
-        <div class="card">
-            <h2>Peliculas</h2>
-            <div class="card-image card-2"></div>
-            <a href="/pelicula">ADMINISTRAR</a>
+                <div class="input-box">
+                    <label for="apPat">Apellido Paterno</label>
+                    <input type="text" placeholder="Ingrese su apellido paterno" name="apPat" id="apPat" required>
+                </div>
 
-        </div>
+                <div class="input-box">
+                    <label for="apMat">Apellido Materno</label>
+                    <input type="text" placeholder="Ingrese su apellido materno" name="apMat" id="apMat" required>
+                </div>
 
-        <div class="card">
-            <h2>Rentas</h2>
-            <div class="card-image card-3"></div>
-            <a href="/renta">ADMINISTRAR</a>
+                <div class="input-box">
+                    <label for="password">Contraseña</label>
+                    <input type="password" placeholder="Ingrese su contraseña" name="password" id="password" required>
+                </div>
 
-        </div>
+                <div class="input-box">
+                    <label for="email">Correo electronico</label>
+                    <input type="text" placeholder="Ingrese su correo" name="email" id="email" required>
+                </div>
+
+                <span class="super-user">Super user</span>
+                <div class="user-type">
+                    <input type="radio" id="superUserYes" name="superUser" value="1">
+                    <label for="superUserYes">Si</label>
+                    <input type="radio" id="superUserNo" name="superUser" value="0">
+                    <label for="superUserNo">No</label>
+
+                </div>
+
+
+            </div>
+
+        </form>
 
         {% with messages = get_flashed_messages() %}
         {% if messages %}
@@ -83,6 +107,7 @@
         {% endif %}
         {% endwith %}
     </section>
+    </div>
 </body>
 
 </html>

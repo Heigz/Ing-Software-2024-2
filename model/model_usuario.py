@@ -1,11 +1,34 @@
 from alchemyClasses.Usuario import Usuario
 from alchemyClasses import db
-
+import re
 
 # ///////////////////////////////////////////0) Crear un nuevo registro
 
 
+def validar_datos(nombre, apPat, apMat, email):
+    # Validar que el nombre solo contenga letras
+    if not re.match("^[A-Za-z ]+$", nombre):
+        return False
+
+    # Validar que el apellido paterno solo contenga letras
+    if not re.match("^[A-Za-z ]+$", apPat):
+        return False
+
+    # Validar que el apellido materno solo contenga letras
+    if not re.match("^[A-Za-z ]+$", apMat):
+        return False
+
+    # Validar el formato del correo electrónico
+    if "@" not in email or ".com" not in email:
+        return False
+
+    return True
+
+
 def crear_usuario(nombre, apPat, apMat, password, email, superUser):
+
+    if not validar_datos(nombre, apPat, apMat, email):
+        return "Datos no válidos. Verifica solo contengan letras en el nombre legal."
 
     nuevo_usuario = Usuario(
         nombre=nombre,
@@ -21,7 +44,7 @@ def crear_usuario(nombre, apPat, apMat, password, email, superUser):
         db.session.commit()
 
     except Exception as e:
-        print(e)
+        return "Error al crear el usuario."
     return "Usuario creado con éxito."
 
 
@@ -60,6 +83,7 @@ def actualizar_nombre_usuario(id, nombre):
 
 # ////////////////////////////////////////////3) Actualizar todos los campos de un registro
 def actualizar_usuario(id, nombre, apPat, apMat, password, email, superUser):
+
     usuario = Usuario.query.filter(Usuario.idUsuario == id).first()
     usuario.nombre = nombre
     usuario.apPat = apPat
@@ -67,6 +91,10 @@ def actualizar_usuario(id, nombre, apPat, apMat, password, email, superUser):
     usuario.password = password
     usuario.email = email
     usuario.superUser = superUser
+
+    if not validar_datos(nombre, apPat, apMat, email):
+        print("Datos no válidos. Verifica solo contengan letras en el nombre legal.")
+        return "Datos no válidos. Verifica solo contengan letras en el nombre legal."
     db.session.commit()
     return "Actualizacion realizada con exito"
 
