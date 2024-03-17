@@ -28,14 +28,12 @@ def create_pelicula():
         genero = request.form["genero"]
         duracion = request.form["duracion"]
         inventario = request.form["inventario"]
-        if (
-            crear_pelicula(nombre, genero, duracion, inventario)
-            == "Pelicula creada con éxito."
-        ):
-            flash("Pelicula creada con éxito.")
+        mensaje = crear_pelicula(nombre, genero, duracion, inventario)
+        if mensaje == "Pelicula creada con éxito.":
+            flash(mensaje)
             return redirect(url_for("pelicula.create_pelicula"))
         else:
-            flash("Error al crear el usuario.")
+            flash(mensaje)
             return redirect(url_for("pelicula.seccion_create"))
 
 
@@ -125,20 +123,12 @@ def update_pelicula_id_change():
         genero = request.form["genero"]
         duracion = request.form["duracion"]
         inventario = request.form["inventario"]
-        if (
-            actualizar_pelicula(
-                idPelicula,
-                nombre,
-                genero,
-                duracion,
-                inventario,
-            )
-            == "Actualizacion realizada con exito"
-        ):
-            flash("Pelicula actualizada con exito.")
-            return redirect(url_for("pelicula.update_pelicula_id"))
+        mensaje = actualizar_pelicula(idPelicula, nombre, genero, duracion, inventario)
+        if mensaje == "Pelicula creada con éxito.":
+            flash(mensaje)
+            return render_template("update_p_id_sin_boton.html", name="Update")
         else:
-            flash("Error al actualizar la pelicula.")
+            flash(mensaje)
             return redirect(url_for("pelicula.update_pelicula_id"))
 
 

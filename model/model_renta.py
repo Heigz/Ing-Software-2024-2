@@ -2,8 +2,25 @@ from alchemyClasses.Renta import Renta
 from alchemyClasses import db
 
 
+def validar_datos(idUsuario, idPelicula, dias_de_renta):
+
+    if not idUsuario.isdigit():
+        return False
+
+    if not idPelicula.isdigit():
+        return False
+
+    if not dias_de_renta.isdigit():
+        return False
+
+    return True
+
+
 # ///////////////////////////////////////////0) Crear un nuevo registro
 def crear_renta(idUsuario, idPelicula, fecha_renta, dias_de_renta, estatus):
+
+    if not validar_datos(idUsuario, idPelicula, dias_de_renta):
+        return "Datos no válidos. Verifica que el idUsuario, idPelicula y dias_de_renta sean solo numeros."
     nueva_renta = Renta(
         idUsuario=idUsuario,
         idPelicula=idPelicula,
@@ -16,7 +33,7 @@ def crear_renta(idUsuario, idPelicula, fecha_renta, dias_de_renta, estatus):
         db.session.commit()
 
     except Exception as e:
-        print(e)
+        return "Error al crear la renta."
     return "Renta creada con éxito."
 
 

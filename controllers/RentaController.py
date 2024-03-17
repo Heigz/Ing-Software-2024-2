@@ -29,14 +29,14 @@ def create_renta():
         fecha_renta = request.form["fecha_renta"]
         dias_de_renta = request.form["dias_de_renta"]
         estatus = request.form["estatus"]
-        if (
-            crear_renta(idUsuario, idPelicula, fecha_renta, dias_de_renta, estatus)
-            == "Renta creada con éxito."
-        ):
-            flash("Renta creada con éxito.")
+        mensaje = crear_renta(
+            idUsuario, idPelicula, fecha_renta, dias_de_renta, estatus
+        )
+        if mensaje == "Renta creada con éxito.":
+            flash(mensaje)
             return redirect(url_for("renta.create_renta"))
         else:
-            flash("Error al crear la renta.")
+            flash(mensaje)
             return redirect(url_for("renta.seccion_create"))
 
 
@@ -96,14 +96,12 @@ def update_renta_id_change():
         print("Form data received:", request.form)
         idRentar = request.form["idRentar"]
         estatus = request.form["estatus"]
-        if (
-            actualizar_estatus_renta(idRentar, estatus)
-            == "Actualizacion realizada con exito"
-        ):
-            flash("Actualizacion realizada con exito")
-            return redirect(url_for("renta.update_renta_id_change"))
+        mensaje = actualizar_estatus_renta(idRentar, estatus)
+        if mensaje == "Actualizacion realizada con exito":
+            flash(mensaje)
+            return render_template("update_r_id_sin_boton.html", titulo="renta")
         else:
-            flash("Error al actualizar la renta.")
+            flash(mensaje)
             return redirect(url_for("renta.update_renta_id_change"))
 
 

@@ -1,8 +1,25 @@
 from alchemyClasses.Pelicula import Pelicula
 from alchemyClasses import db
+import re
+
+
+def validar_datos(genero, duracion, inventario):
+    if any(char.isdigit() for char in genero):
+        return False
+
+    if not duracion.isdigit():
+        return False
+
+    if not inventario.isdigit():
+        return False
+
+    return True
 
 
 def crear_pelicula(nombre, genero, duracion, inventario):
+
+    if not validar_datos(genero, duracion, inventario):
+        return "Datos no válidos. Verifica que el genero duracion e inventario sean solo numeros."
 
     nueva_pelicula = Pelicula(
         nombre=nombre,
@@ -13,9 +30,8 @@ def crear_pelicula(nombre, genero, duracion, inventario):
     try:
         db.session.add(nueva_pelicula)
         db.session.commit()
-
     except Exception as e:
-        print(e)
+        return "Error al crear la pelicula."
     return "Pelicula creada con éxito."
 
 
@@ -47,6 +63,11 @@ def actualizar_pelicula(id, nombre, genero, duracion, inventario):
     pelicula.genero = genero
     pelicula.duracion = duracion
     pelicula.inventario = inventario
+    if not validar_datos(genero, duracion, inventario):
+        print(
+            "Datos no válidos. Verifica que el genero duracion e inventario sean solo numeros."
+        )
+        return "Datos no válidos. Verifica que el genero duracion e inventario sean solo numeros."
     db.session.commit()
     return "Actualizacion realizada con exito"
 
