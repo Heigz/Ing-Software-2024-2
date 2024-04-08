@@ -1,0 +1,102 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.main {
+    box-sizing: border-box;
+    flex-grow: 1;
+    /* Add this line */
+}
+
+
+
+.div {
+    background-color: rgb(92, 92, 92);
+    /* Set the height to 100% */
+}
+
+/* Rest of your CSS code */
+
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    z-index: 1;
+    min-height: 100vh;
+    /* Set a minimum height to prevent overlapping */
+
+}
+
+.card {
+    background-color: black;
+    width: 270px;
+    height: 400px;
+    margin: 150px 40px;
+    opacity: .65;
+    border-radius: 10px;
+}
+
+.card-image {
+    height: 260px;
+    margin-bottom: 15px;
+    background-size: cover;
+    z-index: 1;
+
+}
+
+
+.card-1 {
+    background-image: url('./images/rinzler.jpeg');
+
+}
+
+.card-2 {
+    background-image: url('./images/peliculas.jpeg');
+
+}
+
+.card-3 {
+    background-image: url('./images/compu_renta.jpeg');
+
+}
+
+.card:hover {
+    background-color: black;
+    opacity: 1;
+    color: white;
+    transition: .5s ease;
+
+}
+
+.h2 {
+    color: white;
+    text-align: center;
+    font-size: 29px;
+}
+
+.Link {
+    background-color: white;
+    color: black;
+    padding: 15px 20px;
+    display: inline-block;
+    text-align: center;
+    margin: 40px 50px 20px;
+    border-radius: 5px;
+    letter-spacing: 2px;
+    transition: 0.15s;
+    text-decoration: none;
+    margin-top: 20px;
+
+}
+
+.Link:hover {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    transform: scale(1.02);
+    transition: all .2s ease;
+}
