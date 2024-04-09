@@ -3,3 +3,104 @@
     background-color: rgb(92, 92, 92);
     ;
 }
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.h1 {
+    color: white;
+    text-align: center;
+    font-size: 50px;
+    margin-top: 20px;
+    /* Adjusted margin */
+    position: absolute;
+    /* Added absolute positioning */
+    top: 140px;
+    /* Positioned at the top of the video */
+    left: 50%;
+    /* Center horizontally */
+    transform: translateX(-50%);
+    /* Center horizontally */
+    font-size: 70px;
+
+}
+
+
+
+.h2 {
+    color: white;
+    text-align: center;
+    font-size: 29px;
+}
+
+
+
+.container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    z-index: 1;
+    min-height: 100vh;
+    /* Set a minimum height to prevent overlapping */
+
+}
+
+.table {
+    border-spacing: 0;
+    margin: 1rem;
+    width: auto;
+}
+
+/* .renta-vencida {
+    background-color: rgba(255, 0, 0, 0.2);
+    /* Color de fondo rojo translúcido para resaltar 
+} */
+
+.table_row:nth-child(even) {
+    background-color: wheat;
+}
+
+.table_row:nth-child(odd) {
+    background-color: rgb(172, 201, 194)
+}
+
+.table_header {
+    text-align: center;
+    background-color: black;
+    color: wheat;
+    padding: 50px;
+
+}
+
+.table_cell {
+    padding: 20px;
+
+}
+
+
+
+@media(max-width: 1300px) {
+    .navbar .links {
+        display: none;
+    }
+
+    .navbar .toggle_btn {
+        display: block;
+    }
+
+    .dropdown_menu {
+        display: block;
+    }
+}
+
+@media(max-width: 576px) {
+    .dropdown_menu {
+        left: 2rem;
+        width: unset;
+    }
+}

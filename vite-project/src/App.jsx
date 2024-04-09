@@ -1,3 +1,4 @@
+// App.jsx
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/navbar/Navbar';
@@ -16,6 +17,8 @@ import DeletePelicula from './components/Pelicula/actions/delete/DeletePelicula'
 import CreateRenta from './components/Renta/actions/create/CreateRenta';
 import ReadRenta from './components/Renta/actions/read/ReadRenta';
 import UpdateRenta from './components/Renta/actions/update/UpdateRenta';
+import UpdateForms from './components/Usuario/actions/update/formsUpdate/UpdateForms';
+import { UsuariosDataProvider } from './components/Usuario/UsuariosData';
 import './App.css';
 
 function App() {
@@ -24,11 +27,36 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/menu" element={<Menu />} />
-        <Route path="/usuarios" element={<Usuarios />} />
-        <Route path="/usuarios/create" element={<CreateUsuario />} />
-        <Route path="/usuarios/read" element={<ReadUsuario />} />
-        <Route path="/usuarios/update" element={<UpdateUsuario />} />
-        <Route path="/usuarios/delete" element={<DeleteUsuario />} />
+        <Route path="/usuarios" element={
+          <UsuariosDataProvider >
+            <Usuarios />
+          </UsuariosDataProvider>
+        } />
+        <Route path="/usuarios/create" element={
+          <UsuariosDataProvider>
+            <CreateUsuario />
+          </UsuariosDataProvider>
+        } />
+        <Route path="/usuarios/read" element={
+          <UsuariosDataProvider>
+            <ReadUsuario />
+          </UsuariosDataProvider>
+        } />
+        <Route path="/usuarios/update" element={
+          <UsuariosDataProvider>
+            <UpdateUsuario />
+          </UsuariosDataProvider>
+        } />
+        <Route path="/usuarios/update/edit" element={
+          <UsuariosDataProvider>
+            <UpdateForms />
+          </UsuariosDataProvider>
+        } />
+        <Route path="/usuarios/delete" element={
+          <UsuariosDataProvider>
+            <DeleteUsuario />
+          </UsuariosDataProvider>
+        } />
 
         <Route path="/peliculas" element={<Peliculas />} />
         <Route path="/peliculas/create" element={<CreatePelicula />} />

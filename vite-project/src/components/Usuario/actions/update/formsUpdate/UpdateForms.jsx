@@ -1,24 +1,28 @@
 import React, { useContext } from 'react';
-import Styles from './CreateUsuario.module.css';
-import { UsuariosDataContext } from '../../UsuariosData';
+import { useLocation } from 'react-router-dom';
+import Styles from './UpdateForms.module.css';
+import { UsuariosDataContext } from '../../../UsuariosData';
 
-function CreateUsuario() {
+function UpdateForms() {
 
+    const location = useLocation();
+    const idUsuario = location.state ? location.state.idUsuario : null; // Check if location.state is not null before accessing idUsuario
 
-    const { addUsuario } = useContext(UsuariosDataContext);
+    const { updateUsuario } = useContext(UsuariosDataContext);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const nombre = e.target.nombre.value;
-        const apPat = e.target.apPat.value;
-        const apMat = e.target.apMat.value;
-        const password = e.target.password.value;
-        const email = e.target.email.value;
-        const superUser = e.target.superUser.value;
-
-        addUsuario(nombre, apPat, apMat, password, email, superUser);
-        alert(`Usuario ${nombre} creado con éxito`);
-        e.target.reset();
+    const handleUpdate = (event) => {
+        event.preventDefault();
+        // Get the updated user data from the form or state
+        const updatedNombre = event.target.nombre.value;
+        const updatedApPat = event.target.apPat.value;
+        const updatedApMat = event.target.apMat.value;
+        const updatedPassword = event.target.password.value;
+        const updatedEmail = event.target.email.value;
+        const updatedSuperUser = event.target.superUser.value;
+        const index = Number(idUsuario);
+        updateUsuario(index, updatedNombre, updatedApPat, updatedApMat, updatedPassword, updatedEmail, updatedSuperUser);
+        alert(`Usuario ${idUsuario} modificado con éxito`);
+        event.target.reset();
     }
 
     return (
@@ -26,8 +30,8 @@ function CreateUsuario() {
             <section className={Styles.container}>
 
 
-                <form action="#" onSubmit={handleSubmit}>
-                    <h2 className={Styles.h2}>Crear usuario</h2>
+                <form action="#" onSubmit={handleUpdate}>
+                    <h2 className={Styles.h2}>Modificar usuario {idUsuario}</h2>
                     <div className={Styles.content}>
                         <div className={`${Styles['input-box']}`}>
                             <label htmlFor="nombre">Nombre</label>
@@ -64,7 +68,7 @@ function CreateUsuario() {
                         </div>
 
                         <div className={`${Styles['button-container']}`}>
-                            <button type="submit">Crear</button>
+                            <button type="submit">Update</button>
                         </div>
                     </div>
 
@@ -74,4 +78,4 @@ function CreateUsuario() {
     );
 }
 
-export default CreateUsuario;
+export default UpdateForms;
