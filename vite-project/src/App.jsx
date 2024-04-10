@@ -18,7 +18,9 @@ import CreateRenta from './components/Renta/actions/create/CreateRenta';
 import ReadRenta from './components/Renta/actions/read/ReadRenta';
 import UpdateRenta from './components/Renta/actions/update/UpdateRenta';
 import UpdateForms from './components/Usuario/actions/update/formsUpdate/UpdateForms';
+import UpdateFormsPelicula from './components/Pelicula/actions/update/formsUpdate/UpdateForms';
 import { UsuariosDataProvider } from './components/Usuario/UsuariosData';
+import { PeliculasDataProvider } from './components/Pelicula/PeliculasData';
 import './App.css';
 
 function App() {
@@ -57,13 +59,41 @@ function App() {
             <DeleteUsuario />
           </UsuariosDataProvider>
         } />
+        // =====================================Peliculas=====================================
+        <Route path="/peliculas" element={
+          <PeliculasDataProvider>
+            <Peliculas />
+          </PeliculasDataProvider>
+        } />
+        <Route path="/peliculas/create" element={
+          <PeliculasDataProvider>
+            <CreatePelicula />
+          </PeliculasDataProvider>
+        } />
+        <Route path="/peliculas/read" element={
+          <PeliculasDataProvider>
+            <ReadPelicula />
+          </PeliculasDataProvider>
+        } />
+        <Route path="/peliculas/update" element={
+          <PeliculasDataProvider>
+            <UpdatePelicula />
+          </PeliculasDataProvider>
+        } />
+        <Route path="/peliculas/update/edit" element={
+          <PeliculasDataProvider>
+            <UpdateFormsPelicula />
+          </PeliculasDataProvider>
+        } />
+        <Route path="/peliculas/delete" element={
+          <PeliculasDataProvider>
+            <DeletePelicula />
+          </PeliculasDataProvider>
+        } />
 
-        <Route path="/peliculas" element={<Peliculas />} />
-        <Route path="/peliculas/create" element={<CreatePelicula />} />
-        <Route path="/peliculas/read" element={<ReadPelicula />} />
-        <Route path="/peliculas/update" element={<UpdatePelicula />} />
-        <Route path="/peliculas/delete" element={<DeletePelicula />} />
 
+
+        // =====================================Rentas=====================================
         <Route path="/rentas" element={<Rentas />} />
         <Route path="/rentas/create" element={<CreateRenta />} />
         <Route path="/rentas/read" element={<ReadRenta />} />

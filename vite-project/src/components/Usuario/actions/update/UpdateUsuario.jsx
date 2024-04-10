@@ -1,6 +1,6 @@
 // UpdateUsuario.jsx
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Styles from './UpdateUsuario.module.css';
 
 function UpdateUsuario() {

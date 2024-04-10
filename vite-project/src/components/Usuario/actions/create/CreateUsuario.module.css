@@ -196,29 +196,6 @@ h1 {
     transition: 0.4s;
 }
 
-.flashes {
-    top: 18px;
-    right: 18px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    z-index: 1000;
-    border-radius: 3px;
-    overflow: hidden;
-    background: green;
-    box-shadow: 0 15px 20px rgba(0, 0, 0, 0, 0.1);
-}
-
-.flashes li {
-    font-size: 20px;
-    color: white;
-    padding: 10px;
-    text-align: center;
-    width: 100%;
-
-
-}
 
 
 @media(max-width: 1100px) {
