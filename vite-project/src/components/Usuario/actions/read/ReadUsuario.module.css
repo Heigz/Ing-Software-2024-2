@@ -73,12 +73,14 @@
     text-align: center;
     background-color: black;
     color: wheat;
-    padding: 50px;
+    padding: 20px 30px;
+    /* 20px vertical padding, 30px horizontal padding */
 
 }
 
 .table_cell {
-    padding: 20px;
+    padding: 20px 40px;
+    /* 20px vertical padding, 30px horizontal padding */
 
 }
 

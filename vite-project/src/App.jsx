@@ -19,8 +19,10 @@ import ReadRenta from './components/Renta/actions/read/ReadRenta';
 import UpdateRenta from './components/Renta/actions/update/UpdateRenta';
 import UpdateForms from './components/Usuario/actions/update/formsUpdate/UpdateForms';
 import UpdateFormsPelicula from './components/Pelicula/actions/update/formsUpdate/UpdateForms';
+import UpdateFormsRenta from './components/Renta/actions/update/formsUpdate/UpdateForms';
 import { UsuariosDataProvider } from './components/Usuario/UsuariosData';
 import { PeliculasDataProvider } from './components/Pelicula/PeliculasData';
+import { RentasDataProvider } from './components/Renta/RentasData';
 import './App.css';
 
 function App() {
@@ -94,10 +96,32 @@ function App() {
 
 
         // =====================================Rentas=====================================
-        <Route path="/rentas" element={<Rentas />} />
-        <Route path="/rentas/create" element={<CreateRenta />} />
-        <Route path="/rentas/read" element={<ReadRenta />} />
-        <Route path="/rentas/update" element={<UpdateRenta />} />
+        <Route path="/rentas" element={
+          <RentasDataProvider>
+            <Rentas />
+          </RentasDataProvider>
+        }
+        />
+        <Route path="/rentas/create" element={
+          <RentasDataProvider>
+            <CreateRenta />
+          </RentasDataProvider>
+        } />
+        <Route path="/rentas/read" element={
+          <RentasDataProvider>
+            <ReadRenta />
+          </RentasDataProvider>
+        } />
+        <Route path="/rentas/update" element={
+          <RentasDataProvider>
+            <UpdateRenta />
+          </RentasDataProvider>
+        } />
+        <Route path="/rentas/update/edit" element={
+          <RentasDataProvider>
+            <UpdateFormsRenta />
+          </RentasDataProvider>
+        } />
       </Routes>
     </Router>
   );
